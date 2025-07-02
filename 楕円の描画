@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp( new MyApp());
+}
+class MyApp extends StatelessWidget {
+
+  @override
+  Widget build( BuildContext context) {
+    return new MaterialApp (
+      title: 'Generated App',
+      theme: new ThemeData (
+        primarySwatch: Colors.blue,
+        primaryColor: const Color (0xFF2196f3),
+        accentColor: const Color (0xFF2196f3),
+        CanvasColor: const Color (0xFFfafafa),
+      ),
+      home: new MyHomePage(),
+    );
+  }
+}
+@override
+void paint(Canvas canvas, Size size) {
+  Paint p = Paint();
+  // 正円の描画
+  p.style = PaintingStyle.fill;
+  p.color = Color.fromARGB(150, 0, 200, 255);
+  Offset ctr = Offset(100.0, 100.0);
+  canvas.drawCircle(ctr, 75.0, p);
+
+  // 楕円1の描画
+  p.style = PaintingStyle.strke;
+  p.color = Color.fromARGB(150, 200, 0, 255);
+  p.strokeWidth = 10.0;
+  Rect r = Rect.fromLTWH(100.0, 50.0, 200.0, 150.0);
+  canvas.drawOval(r, p);
+
+  // 楕円２の描画
+  r = Rect.fromLTWH(50.0, 100.0, 150.0, 200.0);
+  canvas.drawOval(r, p);
+}
